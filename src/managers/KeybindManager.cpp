@@ -666,7 +666,7 @@ void CKeybindManager::changeworkspace(std::string args) {
             // to the previous workspace again and again.
             static auto *const PALLOWWORKSPACECYCLES = &g_pConfigManager->getConfigValuePtr("binds:allow_workspace_cycles")->intValue;
             if (!*PALLOWWORKSPACECYCLES)
-                PCURRENTWORKSPACE->m_iPrevWorkspaceID = -1;
+                PCURRENTWORKSPACE->m_iPrevWorkspaceID = PCURRENTWORKSPACE->m_iID;
         }
     } else {
         workspaceToChangeTo = getWorkspaceIDFromString(args, workspaceName);
